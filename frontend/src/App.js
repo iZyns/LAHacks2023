@@ -1,23 +1,21 @@
 import logo from './logo.svg';
+import React from 'react'
 import './App.css';
 
 function App() {
+  const loginRedir = () => {
+    //TODO: Redirect to login page
+  };
+
+  const signupRedir = () => {
+    //TODO: Redirect to login page
+  };
+
   return (
+    // Header & buttons
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> LAHacks Project </h1>
+      <button type="button" onClick={loginRedir}>Login</button> <button type="button" onclick={signupRedir}>Sign Up</button>
     </div>
   );
 }
