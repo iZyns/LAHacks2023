@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
 
 import Home from '../pages/home';
-import Login from '../pages/login';
 import SignUp from '../pages/signup';
 import Chat from '../pages/chat';
 
@@ -16,8 +15,7 @@ function NavigationBar() {
 
           <Navbar.Brand href="/home" style={{marginRight: "auto", textDecoration: "none", color: "inherit"}}><h1>LA Hacks Project</h1></Navbar.Brand> &nbsp;
           <Nav className="me-auto">
-            <Nav.Link href="/" style={{textDecoration: "none", color: "inherit"}}>Login</Nav.Link> &nbsp;
-            <Nav.Link href="/signup" style={{textDecoration: "none", color: "inherit"}}>Sign Up</Nav.Link> &nbsp;
+            <Nav.Link href="/" style={{textDecoration: "none", color: "inherit"}}>Sign In/Sign Up</Nav.Link> &nbsp;
             <Nav.Link href="/chat/algebra" style={{textDecoration: "none", color: "inherit"}}>Temp Chat Room</Nav.Link>
           </Nav>
 
@@ -26,8 +24,7 @@ function NavigationBar() {
 
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<SignUp />} />
         <Route path="/chat/algebra" element={<Chat />} />
       </Routes>
     </>
