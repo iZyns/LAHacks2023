@@ -2,10 +2,17 @@ import React, {useEffect, useState} from "react";
 import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import "./loginform.css"
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
 const clientId = "98463902310-vtjcv56ij03cduro13bj2mdjm2bvul5l.apps.googleusercontent.com";
 
 const LoginForm = () => {
+    const navigate = useNavigate();
+
+    const navigateHome = () => {
+        navigate('/home');
+    };
+
     useEffect(() => {
         function start() {
             gapi.client.init({
@@ -26,6 +33,7 @@ const LoginForm = () => {
     const onSuccess = e => {
         alert("User signed in")
         console.log(e)
+        navigateHome()
     }
 
     const onFailure = e => {
@@ -73,7 +81,7 @@ const LoginForm = () => {
                 <input type="email" placeholder="E-mail"></input>
                 <input type="password" placeholder="password" />
                 <input type="password" placeholder="re-enter password" />
-                <button className="create-account"><p className="create-text">Create Account</p></button>
+                <button className="create-account" onClick={navigateHome}><p className="create-text">Create Account</p></button>
             </div>
         </div>
     )
