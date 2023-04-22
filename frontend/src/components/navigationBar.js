@@ -12,13 +12,15 @@ function NavigationBar() {
   return (
     <>
       <Navbar fixed="top" bg="dark" variant="dark">
-        <div style={{display: "flex", alignItems: "center"}}>
-          <Navbar.Brand href="/home" style={{marginRight: "auto"}}><h1>LA Hacks Project</h1></Navbar.Brand> &nbsp;
+        <div style={{display: "flex", alignItems: "center", textDecorationColor: "white "}}>
+
+          <Navbar.Brand href="/home" style={{marginRight: "auto", textDecoration: "none", color: "inherit"}}><h1>LA Hacks Project</h1></Navbar.Brand> &nbsp;
           <Nav className="me-auto">
-            <Nav.Link href="/">Login</Nav.Link> &nbsp;
-            <Nav.Link href="/signup">Sign Up</Nav.Link> &nbsp;
-            <Nav.Link href="/chat/algebra">Temp Chat Room</Nav.Link>
+            <Nav.Link href="/" style={{textDecoration: "none", color: "inherit"}}>Login</Nav.Link> &nbsp;
+            <Nav.Link href="/signup" style={{textDecoration: "none", color: "inherit"}}>Sign Up</Nav.Link> &nbsp;
+            <Nav.Link href="/chat/algebra" style={{textDecoration: "none", color: "inherit"}}>Temp Chat Room</Nav.Link>
           </Nav>
+
         </div> <hr />
       </Navbar>
 
