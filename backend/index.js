@@ -106,6 +106,43 @@ app.post("/create-study-space", async (req, res, next) => {
     }
 });
 
+
+app.post("/create-study-space-for-single", async (req, res, next) => {
+    const formData = req.body;
+    console.log(formData)
+
+    try {
+        db.collection("StudySpace").insertMany( [
+            {
+                subject: 
+                    {"Math": 
+                        [
+                            {"Algebra-1":
+                                [
+                                    {
+                                        name: req.body.name,
+                                        numOfUsers: 0,
+                                        lastMessageTime: new Date()
+                                    },
+                                ]
+                            },
+                        
+                        ]
+                    },
+            },
+
+            
+        ]);
+        res.status(200).send("Successfully added to study spaces to database");
+        console.log("Inserted study spaces inside database");
+
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+        console.log("Error inserting study space information")
+    }
+});
+
 // Query and return specific subjects (like Algebra 1, Algebra 2...)
 app.get("/find-specific-subject", async (req, res, next) => {
     let generalSubject = "Math"

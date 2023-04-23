@@ -8,6 +8,7 @@ import axios from 'axios';
 
 let tableHeaders = ["Name of Group", "Category", ""];
 
+
 const Table = () =>{ 
   const [data, setData] = useState([]);
 
@@ -24,18 +25,30 @@ const Table = () =>{
       fetchData();
   }, []);
 
+  const [formData, setFormData] = useState({
+    name: '',
+    specificSubject: ''
+  });
 
-//   const fetchData = async () => {
-//     try {
-//         const response = await axios.get('http://localhost:8000/find-specific-subject');
-//         setData(response.data);
-//         console.log(data)
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-// fetchData();
-// var counter = 0;
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log(formData);
+    const sendData = async () => {
+      try {
+          axios.post('http://localhost:8000/create-study-space-for-single', formData);
+
+      } catch (error) {
+          console.log(error);
+      }
+    };
+  sendData();
+  };
 
   if (data.length === 0) {
     return;
@@ -52,51 +65,35 @@ const Table = () =>{
                   </tr>
               </thead>
               <tbody className="styled-table">
-
-                    {/* <tr key='0'>
-                          <td>{data[0].name}</td>
-                          <td>{data[0].numOfUsers}</td>
-                          <td>{data[0].lastMessageTime}</td>
-                    </tr> */}
-
-
-                    {/* <tr key='1'>
-                          <td>{data[1].name}</td>
-                          <td>{data[1].numOfUsers}</td>
-                          <td>{data[1].lastMessageTime}</td>
-                    </tr>
-
-                    <tr key='2'>
-                          <td>{data[2].name}</td>
-                          <td>{data[2].numOfUsers}</td>
-                          <td>{data[2].lastMessageTime}</td>
-                    </tr> */}
-
-                  {data.map((row, index) => (
+                  {data.map((row) => (
+                    row.map((column, index) => (
                       <tr key={index}>
-                          <td>{row[index].name}</td>
-                          <td>{row[index].numOfUsers}</td>
-                          <td>{row[index].lastMessageTime}</td>
+                          <td>{column.name}</td>
+                          <td>{column.numOfUsers}</td>
+                          <td>{column.lastMessageTime}</td>
                       </tr> 
-                  ))}
-
-                      <tr key='1'>
-                          <td>{data[0][1].name}</td>
-                          <td>{data[0][1].numOfUsers}</td>
-                          <td>{data[0][1].lastMessageTime}</td>
-                      </tr>
-
-                      <tr key='2'>
-                          <td>{data[0][2].name}</td>
-                          <td>{data[0][2].numOfUsers}</td>
-                          <td>{data[0][2].lastMessageTime}</td>
-                      </tr>
+                  ))))}
 
               </tbody>
           </table>
 
 
-          
+          <form>
+            <label>
+              Group Name:
+              <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
+            </label>
+            <br />
+            <label>
+              Specific Subject:
+              <input type="text" name="specificSubject" value={formData.specificSubject} onChange={handleInputChange} />
+            </label>
+            <br/>
+            <button type="submit" onClick={handleSubmit}>Submit</button>
+          </form>
+
+
+
       </div>
   );
 }
