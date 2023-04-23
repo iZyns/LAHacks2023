@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
   
 const Chat = () => {
   const [msg, setMsg] = useState("");
+  const [msgTxt, setMsgTxt] = useState(null);
+  const [show, setShow] = useState(false);
+
+
+  const handleMsg = (i) => {
+    setMsg(i.target.value);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setShow(true);
+    setMsgTxt(msg);
     setMsg("");
   }
 
   return (
     <div>
+      <br/><br/><br/>
       <h1>Algebra Study Space</h1>
       <b>Current Users:</b>&nbsp; 7
 
@@ -24,9 +33,10 @@ const Chat = () => {
       <div className = "align-left">
         <b>Joe:</b>&nbsp; Mama.
       </div>
-      {/* <div className = "align-left">
-        <b>You:</b>&nbsp; {msg}
-      </div> */}
+      <div className = "align-left">
+        {show ? (<p><b>You:</b> {msgTxt}</p>) : null}
+      </div>
+      
 
       <div className = "footer">
         <form style={{display: "flex", flexDirection: "row"}} onSubmit={handleSubmit}>
@@ -34,7 +44,7 @@ const Chat = () => {
             style={{flex: "1"}}
             type="text"
             value={msg}
-            onChange={(e) => setMsg(e.target.value)}
+            onChange={handleMsg}
             placeholder="Type your message here."/>
         </form>
       </div>      
