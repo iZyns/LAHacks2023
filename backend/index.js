@@ -14,7 +14,7 @@ const client = new MongoClient(process.env.MONGODB_API_KEY,
 );
 
 var collection;
-app.listen(3000, async () => {
+app.listen(8000, async () => {
     try {
         await client.connect();
         db = client.db("LAHacks");

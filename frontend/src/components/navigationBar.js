@@ -8,6 +8,20 @@ import SignUp from '../pages/signup';
 import Chat from '../pages/chat';
 
 function NavigationBar() {
+  // const [data, setData] = useState({});
+  
+
+  //     useEffect(() => {
+  //       axios.get('http://localhost:8000/find-specific-subject')
+  //         .then(response => {
+  //         setData(response.data);
+  //         console.log(data)
+  //       })
+  //         .catch(error => {
+  //           console.log(error);
+  //         });
+  //     }, []);
+
   return (
     <> 
       {/* Added light instead of dark */}
