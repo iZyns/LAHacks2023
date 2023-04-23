@@ -1,18 +1,13 @@
 import React, {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import "./loginform.css"
-import {Routes, Route, useNavigate} from 'react-router-dom';
 
 const clientId = "98463902310-vtjcv56ij03cduro13bj2mdjm2bvul5l.apps.googleusercontent.com";
 
 const LoginForm = () => {
     const navigate = useNavigate();
-
-    const navigateHome = () => {
-        navigate('/home');
-    };
-
     useEffect(() => {
         function start() {
             gapi.client.init({
@@ -31,9 +26,7 @@ const LoginForm = () => {
     }
 
     const onSuccess = e => {
-        alert("User signed in")
-        console.log(e)
-        navigateHome()
+        navigate('/home')
     }
 
     const onFailure = e => {
@@ -45,8 +38,8 @@ const LoginForm = () => {
         <div className="page">
             <div className="signin">
             <h1>Sign In</h1>
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
+            <input className="inputlogin" type="text" placeholder="username" />
+            <input className="inputlogin" type="password" placeholder="password" />
             <div className="login-btn" onClick={popup}>
             <p className="signin-text">Sign In</p>
             </div>
@@ -62,7 +55,7 @@ const LoginForm = () => {
                         onSuccess={onSuccess}
                         onFailure={onFailure}
                         cookiePolicy={'single_host_origin'}
-                        isSignedIn={true} 
+                        isSignedIn={false} 
                         icon={false}   
                         theme="dark"  
                     />
@@ -77,11 +70,11 @@ const LoginForm = () => {
             <p className="or-text">or</p>
             <div className="signup">
                 <h1>Sign Up</h1>
-                <input type="text" placeholder="username" />
-                <input type="email" placeholder="E-mail"></input>
-                <input type="password" placeholder="password" />
-                <input type="password" placeholder="re-enter password" />
-                <button className="create-account" onClick={navigateHome}><p className="create-text">Create Account</p></button>
+                <input classname="inputlogin" type="text" placeholder="username" />
+                <input classname="inputlogin" type="email" placeholder="E-mail"></input>
+                <input classname="inputlogin" type="password" placeholder="password" />
+                <input classname="inputlogin" type="password" placeholder="re-enter password" />
+                <button className="create-account" onClick={onSuccess}>Create Account</button>
             </div>
         </div>
     )

@@ -1,40 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from 'react';
+import NavigationBar from '../components/navigationBar';
+import "./chat.css";
   
 const Chat = () => {
-  const [msg, setMsg] = useState("");
-  const [msgTxt, setMsgTxt] = useState(null);
-  const [show, setShow] = useState(false);
-
+  const [msgs, setMsgs] = useState([]);
+  const [msgTxt, setMsgTxt] = useState("");
 
   const handleMsg = (i) => {
-    setMsg(i.target.value);
+    setMsgTxt(i.target.value);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShow(true);
-    setMsgTxt(msg);
-    setMsg("");
+    const newMsg = msgTxt;
+    setMsgs([...msgs, newMsg]);
+    setMsgTxt("");
   }
 
   return (
     <div>
+      <NavigationBar />
       <br/><br/><br/>
-      <h1>Algebra Study Space</h1>
-      <b>Current Users:</b>&nbsp; 7
+      <h1>Study Space</h1>
 
-      <div className = "align-left">
-        <b>Bob:</b>&nbsp; I love math.
-      </div>
-      <div className = "align-left">
-        <b>Mason:</b>&nbsp; What do the numbers mean?
-      </div>
-      <div className = "align-left">
-        <b>Joe:</b>&nbsp; Mama.
-      </div>
-      <div className = "align-left">
-        {show ? (<p><b>You:</b> {msgTxt}</p>) : null}
+      <div>
+        <ul>
+          {msgs.map((message, index) => (
+            <li style={{display: "flex", alignItems: "left"}} key={index}>&nbsp;{message}</li>
+          ))}
+        </ul>
       </div>
       
 
@@ -43,7 +38,7 @@ const Chat = () => {
           <input 
             style={{flex: "1"}}
             type="text"
-            value={msg}
+            value={msgTxt}
             onChange={handleMsg}
             placeholder="Type your message here."/>
         </form>
