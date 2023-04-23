@@ -32,3 +32,10 @@ With most of us being first-timers at a hackathon, we learned how to work with R
 ## What's next for ED-YOU
 
 We intend on adding videos, and deploying it to the internet outside of just running it locally on the computer.
+
+Features to come:
+- Coice channel
+- List of subjects and topics
+- Invite other user to a study space
+- Resources tab
+- Automatic deletion of a study space group when inactive for a period amount of time
