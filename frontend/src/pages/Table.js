@@ -68,7 +68,7 @@ const Table = () =>{
                   {data.map((row) => (
                     row.map((column, index) => (
                       <tr key={index}>
-                          <td ><a style={{textDecoration: "none"}} href ="http://localhost:3000/groups">&rarr;</a> Name of Group</td>
+                          <td ><a style={{textDecoration: "none"}} href ="http://localhost:3000/groups">&rarr;</a> {column.name}</td>
                           <td>{column.numOfUsers}</td>
                           <td>{column.lastMessageTime}</td>
                       </tr> 
