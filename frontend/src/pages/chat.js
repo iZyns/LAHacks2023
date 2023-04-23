@@ -19,10 +19,10 @@ const Chat = () => {
   }
 
   return (
-    <div>
+    <div className="chatBackground">
       <NavigationBar />
       <br/><br/><br/><br/>
-      <h1>Study Space</h1>
+      <h1 style={{color: "white"}}>Study Space</h1>
 
       <div>
         <ul>

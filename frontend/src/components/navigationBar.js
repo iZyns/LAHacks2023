@@ -7,10 +7,7 @@ function NavigationBar() {
       <Navbar fixed="top" bg="dark" variant="dark">
         <div style={{display: "flex", alignItems: "center", textDecorationColor: "white"}}>
 
-          <Navbar.Brand href="/home" style={{marginRight: "auto", textDecoration: "none", color: "white"}}><h1>LA Hacks Project</h1></Navbar.Brand> &nbsp;
-          <Nav className="me-auto">
-            <Nav.Link href="/groups" style={{textDecoration: "none", color: "white"}}>Temp Chat Room</Nav.Link>
-          </Nav>
+          <Navbar.Brand href="/home" style={{marginRight: "auto", textDecoration: "none", color: "white"}}><h1>ed-YOU</h1></Navbar.Brand> &nbsp;
 
         </div> <hr />
       </Navbar>

@@ -5,3 +5,9 @@ ul {
  ul li::before {
     content: "User:";
  }
+
+.chatBackground {
+   background: #EDC218;
+   background: linear-gradient(180deg, #EDC218, #D1C523);
+   padding-bottom: 100vh;
+}
