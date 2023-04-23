@@ -21,7 +21,7 @@ const Chat = () => {
   return (
     <div>
       <NavigationBar />
-      <br/><br/><br/>
+      <br/><br/><br/><br/>
       <h1>Study Space</h1>
 
       <div>
@@ -41,6 +41,7 @@ const Chat = () => {
             value={msgTxt}
             onChange={handleMsg}
             placeholder="Type your message here."/>
+          &nbsp;<button type="submit">Send</button>
         </form>
       </div>      
     </div>
