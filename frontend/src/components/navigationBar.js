@@ -9,9 +9,10 @@ import Chat from '../pages/chat';
 
 function NavigationBar() {
   return (
-    <>
-      <Navbar fixed="top" bg="dark" variant="dark">
-        <div style={{display: "flex", alignItems: "center", textDecorationColor: "white "}}>
+    <> 
+      {/* Added light instead of dark */}
+      <Navbar fixed="top" bg="light" variant="dark">
+        <div style={{display: "flex", alignItems: "center", textDecorationColor: "white"}}>
 
           <Navbar.Brand href="/home" style={{marginRight: "auto", textDecoration: "none", color: "inherit"}}><h1>LA Hacks Project</h1></Navbar.Brand> &nbsp;
           <Nav className="me-auto">
