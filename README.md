@@ -19,7 +19,7 @@ In ED-YOU, students can create their own chatrooms to study together and meet ne
 
 ## How we built it
 
-We built this using MongoDB, ExpressJS, ReactJS, NodeJS.
+We built this using MongoDB, ExpressJS, ReactJS, and NodeJS.
 
 ## Challenges we ran into
 
@@ -27,15 +27,15 @@ Designing the frontend was difficult as we had to query through the backend and 
 
 ## What we learned
 
-With most of us being first-timers at a hackathon, we learned how to work with React.JS, and collaborate/communicate with our team members.
+With most of us being first-timers at a hackathon, we learned how to work with React.JS and collaborate/communicate with our team members.
 
 ## What's next for ED-YOU
 
-We intend on adding videos, and deploying it to the internet outside of just running it locally on the computer.
+We intend on adding videos and deploying them to the internet outside of just running them locally on the computer.
 
 Features to come:
-- Coice channel
+- Choice channel
 - List of subjects and topics
-- Invite other user to a study space
+- Invite other users to a study space
 - Resources tab
 - Automatic deletion of a study space group when inactive for a period amount of time
